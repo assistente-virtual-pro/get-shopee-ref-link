@@ -39,13 +39,25 @@ async function initializePopup() {
         // Obter dados do produto da aba ativa
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
         
-        // Enviar mensagem para o content script
-        const response = await chrome.tabs.sendMessage(tab.id, { action: 'getProductInfo' });
+        if (!tab) {
+            showError();
+            return;
+        }
+        
+        // Obter código de afiliado e enviar mensagem para o content script
+        const affiliateCode = await getStoredAffiliateCode();
+        let response;
+        try {
+            response = await chrome.tabs.sendMessage(tab.id, { action: 'getProductInfo', affiliateCode });
+        } catch (error) {
+            console.warn('Erro ao enviar mensagem:', error);
+            showError();
+            return;
+        }
         
         if (response && response.success) {
             currentProductData = response.data;
-            const affiliateCode = await getStoredAffiliateCode();
-            
+
             if (!affiliateCode) {
                 showNoAffiliateMessage();
             } else {
@@ -129,17 +141,21 @@ async function generateAffiliateLink() {
     if (!affiliateCode || !currentProductData) {
         return;
     }
-    
+    // Se o content script retornou um offerLink encurtado, priorize-o
+    if (currentProductData.offerLink) {
+        affiliateLinkEl.value = currentProductData.offerLink;
+        return;
+    }
+
     const baseUrl = currentProductData.url;
-    
-    // Adicionar código de afiliado à URL
+    // Adicionar código de afiliado à URL como fallback
     let affiliateLink;
     if (baseUrl.includes('?')) {
         affiliateLink = `${baseUrl}&affiliate_code=${encodeURIComponent(affiliateCode)}`;
     } else {
         affiliateLink = `${baseUrl}?affiliate_code=${encodeURIComponent(affiliateCode)}`;
     }
-    
+
     affiliateLinkEl.value = affiliateLink;
 }
 
