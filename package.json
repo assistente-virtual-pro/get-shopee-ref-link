@@ -1,0 +1,27 @@
+{
+  "name": "shopee-affiliate-link-generator",
+  "version": "1.0.0",
+  "description": "Uma extensão do Chrome para gerar links de afiliados de produtos da Shopee com um clique",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shopee",
+    "affiliate",
+    "link-generator",
+    "chrome-extension",
+    "marketing"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/get-shopee-ref-link.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seu-usuario/get-shopee-ref-link/issues"
+  },
+  "homepage": "https://github.com/seu-usuario/get-shopee-ref-link#readme",
+  "devDependencies": {}
+}

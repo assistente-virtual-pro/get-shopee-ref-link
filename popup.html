@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee Affiliate Link</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Shopee Link Afiliado</h1>
+        </div>
+
+        <div class="content">
+            <div id="loading" class="status">
+                <p>Carregando...</p>
+            </div>
+
+            <div id="settings" class="settings-section" style="display: none;">
+                <h3>Configurações</h3>
+                <label for="affiliateCode">Código de Afiliado:</label>
+                <input type="text" id="affiliateCode" placeholder="Insira seu código de afiliado">
+                <button id="saveAffiliateCode" class="btn-primary">Salvar</button>
+            </div>
+
+            <div id="product-info" style="display: none;">
+                <div class="product-details">
+                    <img id="productImage" class="product-image" src="" alt="Produto">
+                    <div class="product-text">
+                        <h3 id="productName">Nome do Produto</h3>
+                        <p id="productPrice" class="price">Preço</p>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="affiliateLink">Link de Afiliado:</label>
+                    <div class="link-input-container">
+                        <input type="text" id="affiliateLink" readonly class="link-input">
+                        <button id="copyBtn" class="btn-icon" title="Copiar">📋</button>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="shareBtn" class="btn-primary">Compartilhar</button>
+                    <button id="openLinkBtn" class="btn-secondary">Abrir Link</button>
+                    <button id="settingsBtn" class="btn-secondary">⚙️ Configurar</button>
+                </div>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    ✓ Link copiado para a área de transferência!
+                </div>
+            </div>
+
+            <div id="error" class="error-message" style="display: none;">
+                <p>Não é possível gerar o link nesta página.</p>
+                <p class="small">Abra uma página de produto da Shopee para continuar.</p>
+            </div>
+
+            <div id="no-affiliate" class="warning-message" style="display: none;">
+                <p>Configure seu código de afiliado primeiro!</p>
+                <button id="setupBtn" class="btn-primary">Configurar Agora</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://affiliate.shopee.com.br" target="_blank">Programa de Afiliados Shopee</a>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

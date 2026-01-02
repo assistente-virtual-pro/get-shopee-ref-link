@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Shopee Affiliate Link</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #1565c0;
+        }
+
+        .info-box a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        .settings-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .settings-item label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Configurações</h1>
+
+        <div class="success-message" id="successMessage">
+            ✓ Configurações salvas com sucesso!
+        </div>
+
+        <div class="info-box">
+            Não tem um código de afiliado? 
+            <a href="https://affiliate.shopee.com.br" target="_blank">Inscreva-se no Programa de Afiliados Shopee</a>
+        </div>
+
+        <div class="section">
+            <h2>Informações do Afiliado</h2>
+
+            <div class="form-group">
+                <label for="affiliateCode">Código de Afiliado *</label>
+                <input 
+                    type="text" 
+                    id="affiliateCode" 
+                    placeholder="Digite seu código de afiliado da Shopee"
+                    required
+                >
+                <p class="help-text">Este código será adicionado aos links de produtos que você compartilha.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="affiliateName">Nome (Opcional)</label>
+                <input 
+                    type="text" 
+                    id="affiliateName" 
+                    placeholder="Seu nome ou nome do seu site"
+                >
+                <p class="help-text">Apenas para seu controle pessoal.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="affiliateEmail">Email (Opcional)</label>
+                <input 
+                    type="text" 
+                    id="affiliateEmail" 
+                    placeholder="seu@email.com"
+                >
+                <p class="help-text">Email associado à sua conta de afiliado.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Preferências</h2>
+
+            <div class="settings-item">
+                <label>
+                    <input type="checkbox" id="autoOpen" checked>
+                    Copiar link automaticamente ao abrir o popup
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <label>
+                    <input type="checkbox" id="showNotifications" checked>
+                    Mostrar notificações de sucesso
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <label>
+                    <input type="checkbox" id="trackStats" checked>
+                    Permitir rastreamento básico de uso
+                </label>
+                <p class="help-text" style="margin-top: 8px;">Ajuda-nos a melhorar a extensão analisando qual versão dos dados produz melhores resultados.</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-secondary" onclick="resetSettings()">Resetar</button>
+            <button class="btn-primary" onclick="saveSettings()">Salvar Configurações</button>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

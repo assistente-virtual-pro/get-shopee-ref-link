@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .icon-bg { fill: #ee4d2d; }
+      .icon-text { fill: white; font-family: Arial, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle class="icon-bg" cx="64" cy="64" r="64"/>
+  
+  <!-- Shopping Bag Icon -->
+  <g transform="translate(32, 35)">
+    <!-- Bag Body -->
+    <path d="M 8 12 L 12 0 L 20 0 L 24 12 L 24 30 Q 24 36 20 36 L 4 36 Q 0 36 0 30 L 0 12" 
+          fill="white" stroke="none"/>
+    
+    <!-- Handles -->
+    <path d="M 12 0 Q 12 -8 16 -8 Q 20 -8 20 0" 
+          fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Heart inside bag -->
+    <g transform="translate(12, 18)">
+      <path d="M 0 4 L -3 1 Q -4 0 -4 -1 Q -4 -3 -2 -3 Q 0 -3 0 -1 Q 0 -3 2 -3 Q 4 -3 4 -1 Q 4 0 3 1 L 0 4" 
+            fill="white"/>
+    </g>
+  </g>
+</svg>
